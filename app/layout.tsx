@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import './global.css';
 
 export const metadata: Metadata = {
   title: 'Next.js on GitHub Pages',
@@ -12,7 +13,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <head>
+        {/* global.css is imported above for global styles */}
+        {/* Removed inline <style> for menu bar */}
+      </head>
+      <body>
+        <nav className="menu-bar">
+          <a href="/" className="menu-link">Home</a>
+          <a href="/about" className="menu-link">About</a>
+          <a href="/contact" className="menu-link">Contact</a>
+        </nav>
+        {children}
+      </body>
     </html>
   );
 }
